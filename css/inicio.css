@@ -1,0 +1,459 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* =========================================
+    1. VARIÁVEIS E CONFIGURAÇÕES */
+:root {
+  --blue-dark: #020817;
+  --blue: #0b2d45;
+  --blue-primary: #5f9b22;
+  --cyan: #3e8af2;
+
+  --green-dark: #071a31;
+  --green: #0b2d45;
+  --green-primary: #5f9b22;
+  --green-light: #a1d449;
+
+  --text-primary: #eaf1f8;
+}
+/* =========================================
+    2. RESET E BASE */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020817;
+  color: var(--text-primary);
+  font-family: "Poppins", serif;
+}
+
+/* =========================================
+    3. HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+/* =========================================
+    4. VÍDEOS DE FUNDO */
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  z-index: 0;
+}
+
+.hero-video.active {
+  opacity: 1;
+}
+/* =========================================
+    5. SOBREPOSIÇÃO ESCURA */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  pointer-events: none;
+}
+/* =========================================
+    6. CONTEÚDO PRINCIPAL DO HERO */
+.hero-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92%, 1380px);
+  z-index: 10;
+}
+
+.hero-logo {
+  width: clamp(280px, 46%, 650px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+  float: right;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 8.5vw, 9rem);
+  line-height: 1;
+  margin-top: 30vh;
+  font-family: "playfair display", serif;
+  color: var(--blue-primary);
+}
+
+.hero-text {
+  max-width: 760px;
+  padding-top: 10px;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+}
+
+/* =========================================
+    7. INFORMAÇÕES DO SLIDE */
+.slide-info {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  max-width: calc(100% - 32px);
+  z-index: 10;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.slide-progress {
+  width: 150px;
+  height: 2px;
+  background: var(--blue-dark);
+  overflow: hidden;
+}
+
+.slide-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--blue-primary);
+  transition: width 0.1s linear;
+}
+
+.slide-number {
+  color: var(--cyan);
+}
+
+.slide-total {
+  color: var(--cyan);
+}
+/* =========================================
+    9. TRANSIÇÃO ESCURA NO FINAL */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  background: none;
+  z-index: 5;
+  pointer-events: none;
+}
+/* =========================================
+    10. SOBRE O PROJETO */
+.about {
+  padding: 40px 80px 0;
+  background: #020817;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text-section {
+  display: flex;
+  align-items: center;
+  color: var(--blue-primary);
+}
+
+.about-text-section hr {
+  width: 80px;
+  margin-left: -80px;
+  border: none;
+  border-top: 2px solid var(--blue-primary);
+}
+
+.about-text-titulo h1 {
+  font-size: 5rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.about-text-titulo {
+  font-size: 3rem;
+  font-family: "playfair display", serif;
+}
+
+.about-text-titulo h2 {
+  color: var(--blue-primary);
+  font-family: "playfair display", serif;
+  font-weight: normal;
+}
+
+.about-text-info {
+  padding-top: 10px;
+  line-height: 1.2;
+  font-size: 20px;
+}
+
+/* Container principal com o gradiente de fundo e borda */
+.about-card-section {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 20px;
+  max-width: none;
+  width: 100%;
+  margin: 40px 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+}
+
+.about-cards {
+  min-width: 0;
+  scroll-snap-align: start;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  position: relative;
+  background: linear-gradient(180deg, #020817 0%, #071a31 65%, #0b2d45 100%);
+  border: 1px solid rgba(120, 184, 42, 0.34);
+  border-radius: 16px;
+  padding: 24px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.about-cards::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 8, 23, 0.15),
+    rgba(2, 8, 23, 0.5)
+  );
+  pointer-events: none;
+}
+
+.about-cards:hover {
+  border-color: #a1d449;
+  box-shadow:
+    0 0 22px rgba(120, 184, 42, 0.28),
+    inset 0 0 18px rgba(120, 184, 42, 0.1);
+}
+
+.about-cards:focus-visible {
+  outline: 2px solid #a1d449;
+  outline-offset: 3px;
+  box-shadow:
+    0 0 22px rgba(120, 184, 42, 0.28),
+    inset 0 0 18px rgba(120, 184, 42, 0.1);
+}
+
+.about-cards::after {
+  content: "Acessar →";
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 3;
+  padding: 10px 14px;
+  border: 1px solid #a1d449;
+  border-radius: 999px;
+  background: #5f9b22;
+  color: #f3f7f1;
+  font:
+    700 0.8rem "Inter",
+    sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.about-cards:hover::after,
+.about-cards:focus-visible::after {
+  background: #a1d449;
+  color: #020817;
+  box-shadow: 0 0 14px rgba(120, 184, 42, 0.32);
+}
+
+.about-cards-img img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  position: relative;
+  z-index: 2;
+}
+
+.about-cards h1 {
+  color: var(--text-primary);
+  max-width: 540px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  z-index: 2;
+  position: relative;
+}
+
+.about-cards p {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.bg-card-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 75%;
+  max-height: 240px;
+  object-fit: cover;
+  pointer-events: none; /* Evita que a imagem atrapalhe o clique no card */
+  z-index: 1;
+}
+
+.bg-card-img-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  z-index: 1; /* Fica atrás dos textos e botões */
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 75%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 75%);
+}
+
+.about-cards > :not(.bg-card-img, .bg-card-img-2) {
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .about {
+    padding: 36px 28px 0;
+  }
+  .top {
+    align-items: flex-start;
+    gap: 26px;
+  }
+  .about-text-titulo h1 {
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    white-space: normal;
+  }
+  .about-text-titulo {
+    font-size: 2rem;
+  }
+  .about-text-info {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .about-card-section {
+    grid-template-columns: repeat(5, minmax(190px, 1fr));
+    margin: 32px 0;
+    width: 100%;
+  }
+  .about-cards {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 100svh;
+    height: 100svh;
+  }
+  .hero-content {
+    width: 90%;
+  }
+  .hero-content {
+    top: 43%;
+  }
+  .hero-logo {
+    float: none;
+    width: min(62vw, 300px);
+    margin: 0 auto;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 11vw, 4.2rem);
+  }
+  .hero-title {
+    margin-top: 8vh;
+  }
+  .hero-text {
+    font-size: 1.12rem;
+  }
+  .slide-info {
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    width: min(62vw, 220px);
+    gap: 8px;
+  }
+  .slide-progress {
+    width: auto;
+    min-width: 0;
+    flex: 1;
+  }
+  .about {
+    padding: 28px 18px 0;
+  }
+  .top {
+    flex-direction: column;
+  }
+  .about-text-section hr {
+    width: 38px;
+    margin-left: 0;
+  }
+  .about-card-section {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 14px;
+    width: 100%;
+    margin: 32px 0;
+  }
+  .about-cards {
+    min-height: 250px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dados, espécies ameaçadas e caminhos para agir pela vida terrestre brasileira."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./src/images/Arara-Azul(Logo-Principal).png"
+    />
+    <link rel="stylesheet" href="./css/barra-lateral.css" />
+    <link rel="stylesheet" href="./css/paleta.css" />
+    <link rel="stylesheet" href="./css/conscientizacao.css" />
+    <link rel="stylesheet" href="./css/rodape.css" />
+    <link rel="stylesheet" href="./css/carregamento.css" />
+    <link rel="stylesheet" href="./css/movimento.css" />
+    <link rel="stylesheet" href="./css/alertas.css" />
+    <link rel="stylesheet" href="./css/responsivo.css" />
+    <script src="./js/movimento.js" defer></script>
+    <script src="./js/alertas.js" defer></script>
+    <title>Conscientização | Vida Terrestre</title>
+  </head>
+  <body class="awareness-site">
+    <header class="side-bar">
+      <div class="side-bar-logo">
+        <a href="index.html" aria-label="Vida Terrestre — início"
+          ><img
+            src="./src/images/Arara-Azul(Logo-Principal).png"
+            alt="Logotipo Vida Terrestre"
+        /></a>
+      </div>
+      <nav class="nav-menu" aria-label="Navegação principal">
+        <a href="index.html" aria-label="Início"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"
+            /></svg
+          ><span class="nav-label">Início</span></a
+        >
+        <a href="explorar.html" aria-label="Explorar"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8" />
+            <path d="m16 16 5 5M8 10.8h5.6M10.8 8v5.6" /></svg
+          ><span class="nav-label">Explorar</span></a
+        >
+        <a href="biomas.html" aria-label="Biomas"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" />
+            <path d="M12 12c0-4 2.2-6.5 6-7.5 0 4.5-2.2 7.5-6 8.5Z" /></svg
+          ><span class="nav-label">Biomas</span></a
+        >
+        <a
+          class="awareness-nav is-current"
+          href="conscientizacao.html"
+          aria-label="Conscientização"
+          aria-current="page"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" />
+            <path d="M12 12c0-4 2.2-6.5 6-7.5 0 4.5-2.2 7.5-6 8.5Z" /></svg
+          ><span class="nav-label">Conscientização</span></a
+        >
+        <a class="news-nav" href="noticias.html" aria-label="Notícias"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4z"
+            />
+            <path d="M4 5.5v14A2.5 2.5 0 0 0 6.5 22H20V18.5" /></svg
+          ><span class="nav-label">Notícias</span></a
+        >
+        <a class="entrar" href="entrar.html" aria-label="Entrar"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0z" /></svg
+          ><span class="nav-label">Entrar</span></a
+        >
+      </nav>
+    </header>
+
+    <main class="awareness-page" id="main">
+      <section class="awareness-hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><i></i> Conhecer para proteger</span>
+          <h1 id="page-title">
+            A vida terrestre precisa de <em>atitude agora.</em>
+          </h1>
+          <p>
+            Desmatamento, fogo e perda de habitat não são números distantes:
+            eles redesenham o lar de milhares de espécies brasileiras.
+          </p>
+          <a class="primary-link" href="#como-agir"
+            >Descubra como agir <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <div class="hero-stat">
+          <span>Brasil</span><strong>1.279</strong>
+          <p>espécies da fauna reconhecidas como ameaçadas</p>
+          <small>Lista nacional atualizada em 2026</small>
+        </div>
+      </section>
+
+      <section class="impact-section" aria-labelledby="impact-title">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">O retrato da pressão</span>
+            <h2 id="impact-title">
+              Quando a natureza perde espaço, todos perdem.
+            </h2>
+          </div>
+          <p>
+            Indicadores recentes ajudam a tornar visível o impacto sobre
+            florestas, água e animais.<span
+              class="live-update"
+              id="data-update"
+              aria-live="polite"
+              >Atualizando painel…</span
+            >
+          </p>
+        </div>
+        <div class="impact-cards">
+          <article>
+            <span class="impact-icon">⌁</span><strong>6.518 km²</strong>
+            <h3>de desmatamento na Amazônia Legal</h3>
+            <p>Taxa consolidada pelo PRODES para 2024.</p>
+          </article>
+          <article>
+            <span class="impact-icon fire">♨</span><strong>30 milhões</strong>
+            <h3>de hectares queimados no Brasil</h3>
+            <p>Área atingida pelo fogo em 2024, segundo o MapBiomas.</p>
+          </article>
+          <article>
+            <span class="impact-icon">◉</span
+            ><strong id="catalog-threatened">—</strong>
+            <h3>espécies em risco no catálogo</h3>
+            <p id="catalog-copy">Carregando dados do banco de espécies.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="charts-section" aria-labelledby="charts-title">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-kicker">Dados que inspiram cuidado</span>
+            <h2 id="charts-title">Os impactos têm muitas formas.</h2>
+          </div>
+        </div>
+        <div class="charts-grid">
+          <article class="chart-card pie-card">
+            <div>
+              <span class="chart-label">Fogo por bioma · 2024</span>
+              <h3>Onde as chamas se concentraram</h3>
+            </div>
+            <div class="pie-layout">
+              <div
+                class="donut"
+                role="img"
+                aria-label="Amazônia 52%, Cerrado 35%, Pantanal 7%, outros biomas 6%"
+              >
+                <strong>87%</strong><span>Amazônia<br />+ Cerrado</span>
+              </div>
+              <ul class="legend">
+                <li><i class="amazon"></i>Amazônia <b>52%</b></li>
+                <li><i class="cerrado"></i>Cerrado <b>35%</b></li>
+                <li><i class="pantanal"></i>Pantanal <b>7%</b></li>
+                <li><i class="others"></i>Outros <b>6%</b></li>
+              </ul>
+            </div>
+            <p class="chart-note">
+              Participação na área queimada brasileira em 2024.
+            </p>
+          </article>
+          <article class="chart-card bars-card">
+            <div>
+              <span class="chart-label">Supressão de vegetação · 2024</span>
+              <h3>Biomas sob maior pressão</h3>
+            </div>
+            <div
+              class="bar-chart"
+              role="img"
+              aria-label="Amazônia 6518 km² e Cerrado 8174 km² de supressão de vegetação em 2024"
+            >
+              <div class="bar-row">
+                <span>Amazônia</span>
+                <div class="bar-track"><i style="--bar-size: 80%"></i></div>
+                <b>6.518</b>
+              </div>
+              <div class="bar-row">
+                <span>Cerrado</span>
+                <div class="bar-track"><i style="--bar-size: 100%"></i></div>
+                <b>8.174</b>
+              </div>
+              <div class="bar-row">
+                <span>Mata Atlântica</span>
+                <div class="bar-track"><i style="--bar-size: 6%"></i></div>
+                <b>475</b>
+              </div>
+              <small>km² de vegetação nativa suprimida</small>
+            </div>
+            <p class="chart-note">
+              Dados PRODES/INPE. Valores anuais, não representam todo o
+              território.
+            </p>
+          </article>
+          <article class="chart-card trend-card">
+            <div>
+              <span class="chart-label">Sinal de alerta</span>
+              <h3>O fogo superou a média histórica</h3>
+            </div>
+            <div class="trend-value">
+              <strong>+62%</strong
+              ><span>em relação à média anual histórica</span>
+            </div>
+            <svg
+              viewBox="0 0 440 138"
+              role="img"
+              aria-label="Linha ilustrando aumento acentuado da área queimada em 2024"
+            >
+              <path class="gridline" d="M15 105H425M15 65H425M15 25H425" />
+              <path
+                class="trend-area"
+                d="M15 108 L82 90 L150 97 L218 69 L286 83 L355 20 L425 30 L425 120 L15 120Z"
+              />
+              <polyline
+                points="15,108 82,90 150,97 218,69 286,83 355,20 425,30"
+                class="trend-line"
+              />
+              <circle cx="355" cy="20" r="5" />
+            </svg>
+            <div class="year-labels">
+              <span>2019</span><span>2020</span><span>2021</span
+              ><span>2022</span><span>2023</span><span>2024</span
+              ><span>2025</span>
+            </div>
+            <p class="chart-note">
+              Série visual educativa; consulte a fonte para a série completa.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="species-section" aria-labelledby="species-title">
+        <div class="species-head">
+          <div>
+            <span class="section-kicker">Em risco de desaparecer</span>
+            <h2 id="species-title">
+              Espécies que precisam de proteção urgente
+            </h2>
+            <p>
+              Conheça alguns animais brasileiros com alto risco de extinção e as
+              ameaças que encaram.
+            </p>
+          </div>
+          <a href="explorar.html" class="text-link"
+            >Explorar espécies <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="species-slider" id="species-slider" aria-live="polite">
+          <div class="species-grid" id="species-grid" aria-busy="true">
+            <div
+              class="loading-indicator loading-indicator--wide"
+              role="status"
+            >
+              <span class="loading-spinner" aria-hidden="true"></span
+              ><span>Carregando espécies do banco de dados…</span>
+            </div>
+          </div>
+          <div class="slider-status">
+            <span id="slider-count">Atualizando seleção</span
+            ><button id="slider-toggle" type="button" aria-pressed="false">
+              Pausar troca automática
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="action-section"
+        id="como-agir"
+        aria-labelledby="action-title"
+      >
+        <div class="action-intro">
+          <span class="section-kicker">Sua escolha também protege</span>
+          <h2 id="action-title">Transforme preocupação em cuidado.</h2>
+          <p>
+            Pequenas decisões ganham força quando milhares de pessoas agem
+            juntas.
+          </p>
+        </div>
+        <div class="action-list">
+          <article>
+            <span>01</span>
+            <div>
+              <h3>Informe-se e compartilhe</h3>
+              <p>
+                Priorize fontes confiáveis e converse sobre conservação no seu
+                círculo.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span>02</span>
+            <div>
+              <h3>Consuma com consciência</h3>
+              <p>
+                Valorize cadeias responsáveis, reduza desperdícios e descarte
+                resíduos corretamente.
+              </p>
+            </div>
+          </article>
+          <article>
+            <span>03</span>
+            <div>
+              <h3>Fortaleça quem protege</h3>
+              <p>
+                Doe, seja voluntário ou acompanhe organizações que atuam nos
+                territórios.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="partners-section" aria-labelledby="partners-title">
+        <div>
+          <span class="section-kicker">Conexões que protegem</span>
+          <h2 id="partners-title">Organizações para conhecer e apoiar</h2>
+        </div>
+        <div class="partners-grid">
+          <a
+            href="https://www.sosma.org.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><strong>SOS Mata Atlântica</strong
+            ><span>Defesa e restauração da floresta</span><b>Visitar ↗</b></a
+          ><a
+            href="https://www.wwf.org.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><strong>WWF-Brasil</strong
+            ><span>Conservação da biodiversidade</span><b>Visitar ↗</b></a
+          ><a
+            href="https://www.ipam.org.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><strong>IPAM Amazônia</strong
+            ><span>Ciência e desenvolvimento sustentável</span
+            ><b>Visitar ↗</b></a
+          >
+        </div>
+      </section>
+
+      <section class="sources-section">
+        <p>
+          Dados consultados:
+          <a
+            href="https://data.inpe.br/biomasbr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >INPE / PRODES</a
+          >,
+          <a
+            href="https://brasil.mapbiomas.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >MapBiomas Fogo</a
+          >
+          e
+          <a
+            href="https://www.gov.br/icmbio/pt-br/assuntos/biodiversidade/fauna-brasileira/fauna-brasileira"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ICMBio</a
+          >. Indicadores apresentados para educação e conscientização.
+        </p>
+      </section>
+    </main>
+    <footer class="footer" id="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a
+            class="footer-logo"
+            href="index.html"
+            aria-label="Vida Terrestre — início"
+            ><img
+              src="./src/images/Arara-Azul(Logo-Principal).png"
+              alt="Vida Terrestre"
+          /></a>
+          <p class="footer-tagline">Conectando você à natureza.</p>
+          <p class="footer-description">
+            Conheça a biodiversidade brasileira e descubra por que proteger cada
+            espécie importa.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <h2>Explore</h2>
+          <a href="index.html">Início</a><a href="explorar.html">Espécies</a
+          ><a href="biomas.html">Biomas</a><a href="noticias.html">Notícias</a>
+        </nav>
+        <nav class="footer-links" aria-label="Sobre o projeto">
+          <h2>Sobre o projeto</h2>
+          <a href="index.html#sobre-projeto">Nossa missão</a
+          ><a
+            href="https://brasil.un.org/pt-br/sdgs/15"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ODS 15</a
+          ><a
+            href="https://github.com/Wellington-S-Dias/Vida-Terrestre-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Projeto acadêmico</a
+          >
+        </nav>
+        <div class="footer-social">
+          <h2>Acompanhe e compartilhe</h2>
+          <div class="footer-social-links">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contatovidaterrestre%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escrever e-mail para Vida Terrestre"
+              title="Escrever e-mail"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/vidaterrestre2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Instagram"
+              title="Instagram"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17.5 6.5h.01" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-creditos">
+        <div class="footer-project-note">
+          <svg class="footer-leaf" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.8 3.2C11.4 3.1 5.2 5.5 3.4 11.1c-1.1 3.4 1 6.4 4.3 6.4 5.9 0 10.8-6.4 13.1-14.3Z"
+            />
+            <path d="M3 22c3.2-5.1 7.3-9.2 13-13" />
+          </svg>
+          <div>
+            <strong>Preservar hoje. Garantir o amanhã.</strong
+            ><span>Projeto acadêmico · ODS 15</span>
+          </div>
+        </div>
+        <p>© 2026 Vida Terrestre. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="./js/barra-lateral-conta.js"></script>
+    <script src="./js/conscientizacao.js"></script>
+  </body>
+</html>

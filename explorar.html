@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./src/images/Arara-Azul(Logo-Principal).png"
+    />
+    <link rel="stylesheet" href="./css/explorar.css" />
+    <link rel="stylesheet" href="./css/barra-lateral.css" />
+    <link rel="stylesheet" href="./css/folhagem.css" />
+    <link rel="stylesheet" href="./css/paleta.css" />
+    <link rel="stylesheet" href="./css/rodape.css" />
+    <link rel="stylesheet" href="./css/aparencia.css" />
+    <link rel="stylesheet" href="./css/carregamento.css" />
+    <link rel="stylesheet" href="./css/movimento.css" />
+    <link rel="stylesheet" href="./css/alertas.css" />
+    <link rel="stylesheet" href="./css/responsivo.css" />
+    <script src="./js/movimento.js" defer></script>
+    <script src="./js/alertas.js" defer></script>
+
+    <title>Vida Terrestre - Explorar</title>
+  </head>
+
+  <body>
+    <header class="side-bar">
+      <div class="side-bar-logo">
+        <a href="index.html" aria-label="Vida Terrestre — início"
+          ><img
+            src="./src/images/Arara-Azul(Logo-Principal).png"
+            alt="Logotipo Vida Terrestre"
+        /></a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" aria-label="Início"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"
+            /></svg
+          ><span class="nav-label">Início</span></a
+        >
+        <a
+          href="explorar.html"
+          class="is-current"
+          aria-label="Explorar"
+          aria-current="page"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8" />
+            <path d="m16 16 5 5M8 10.8h5.6M10.8 8v5.6" /></svg
+          ><span class="nav-label">Explorar</span></a
+        >
+        <a href="biomas.html" aria-label="Biomas"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" />
+            <path d="M12 12c0-4 2.2-6.5 6-7.5 0 4.5-2.2 7.5-6 8.5Z" />
+            <path d="M5 21h14" /></svg
+          ><span class="nav-label">Biomas</span></a
+        >
+        <a
+          class="awareness-nav"
+          href="conscientizacao.html"
+          aria-label="Conscientização"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" />
+            <path d="M12 12c0-4 2.2-6.5 6-7.5 0 4.5-2.2 7.5-6 8.5Z" /></svg
+          ><span class="nav-label">Conscientização</span></a
+        >
+        <a class="news-nav" href="noticias.html" aria-label="Notícias"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4z"
+            />
+            <path d="M4 5.5v14A2.5 2.5 0 0 0 6.5 22H20V18.5" />
+            <path d="M8 7h8M8 10.5h8" /></svg
+          ><span class="nav-label">Notícias</span></a
+        >
+        <a class="entrar" href="entrar.html" aria-label="Entrar"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0z" /></svg
+          ><span class="nav-label">Entrar</span></a
+        >
+      </nav>
+    </header>
+
+    <div
+      id="image-bg-1"
+      class="image-bg active"
+      style="background-image: url(&quot;./src/images/index/amazônia.png&quot;)"
+      aria-hidden="true"
+    ></div>
+    <div id="image-bg-2" class="image-bg" aria-hidden="true"></div>
+
+    <main class="main-content">
+      <div class="input-area">
+        <h1>Explorar Espécies da Fauna Brasileira</h1>
+        <p>
+          Descubra e aprenda sobre as diversas espécies que habitam o território
+          brasileiro.
+        </p>
+      </div>
+
+      <div class="input-filter">
+        <div class="search-box">
+          <img
+            src="./src/images/icons/lupa.png"
+            alt="Ícone de busca"
+            class="search-icon"
+          />
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar espécie por nome..."
+          />
+        </div>
+        <button
+          id="btn-filtros"
+          class="btn-filtros"
+          type="button"
+          aria-controls="filter-drawer"
+          aria-expanded="false"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          Filtros <span id="contador-filtros" class="badge-contador"></span>
+        </button>
+      </div>
+
+      <!-- Painel modal de filtros -->
+      <dialog
+        id="filter-drawer"
+        class="filter-drawer"
+        aria-labelledby="filter-drawer-title"
+      >
+        <div class="drawer-side-bar">
+          <h2 id="filter-drawer-title">Filtros avançados</h2>
+          <button
+            id="btn-fechar"
+            class="btn-fechar"
+            type="button"
+            aria-label="Fechar filtros"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="drawer-body">
+          <div class="filtro-grupo filtro-bioma-grupo">
+            <h3 class="filtro-titulo">Bioma</h3>
+            <div id="biome-filter-slot"></div>
+          </div>
+          <!-- Região -->
+          <div class="filtro-grupo">
+            <label class="filtro-titulo" for="filtro-regiao">Região</label>
+            <select id="filtro-regiao" class="select-dark">
+              <option value="todas">Todas as Regiões</option>
+              <option value="norte">Norte</option>
+              <option value="nordeste">Nordeste</option>
+              <option value="centro-oeste">Centro-Oeste</option>
+              <option value="sudeste">Sudeste</option>
+              <option value="sul">Sul</option>
+            </select>
+          </div>
+          <!-- Classe do Animal -->
+          <div class="filtro-grupo">
+            <label class="filtro-titulo" for="filtro-classe"
+              >Classe do animal</label
+            >
+            <select id="filtro-classe" class="select-dark">
+              <option value="todos">Todos os Tipos</option>
+              <option value="mamifero">Mamífero</option>
+              <option value="ave">Ave</option>
+              <option value="anfibio">Anfíbio</option>
+              <option value="reptil">Réptil</option>
+            </select>
+          </div>
+          <!-- Status de Conservação -->
+          <div class="filtro-grupo">
+            <label class="filtro-titulo">Status de Conservação</label>
+            <div class="radio-group">
+              <label class="radio-label"
+                ><input type="radio" name="status" value="todos" checked />
+                Todos os Status</label
+              >
+              <label class="radio-label"
+                ><input type="radio" name="status" value="pouco-preocupante" />
+                Pouco Preocupante</label
+              >
+              <label class="radio-label"
+                ><input type="radio" name="status" value="quase-ameacada" />
+                Quase ameaçada</label
+              >
+              <label class="radio-label"
+                ><input type="radio" name="status" value="vulneravel" />
+                Vulnerável</label
+              >
+              <label class="radio-label"
+                ><input type="radio" name="status" value="em-perigo" /> Em
+                Perigo</label
+              >
+              <label class="radio-label"
+                ><input type="radio" name="status" value="critico" />
+                Criticamente em perigo</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="drawer-footer">
+          <button id="btn-limpar" class="btn-secundario" type="button">
+            Limpar
+          </button>
+          <button id="btn-aplicar" class="btn-principal" type="button">
+            Aplicar Filtros
+          </button>
+        </div>
+      </dialog>
+
+      <div class="biome-buttons">
+        <button
+          class="biome-btn"
+          data-biome="todos"
+          data-logo="./src/images/Arara-Azul(Logo-Principal).png"
+          data-image="./src/images/index/padrao.jpg"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle
+              cx="12"
+              cy="12"
+              r="8.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+            <line
+              x1="6"
+              y1="6"
+              x2="18"
+              y2="18"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+          Todos
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="amazonia"
+          data-logo="./src/images/Onça-Pintada (Amazônia).png"
+          data-image="./src/images/index/amazônia.png"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.1 2 9 0 4.9-4 9-10 9z"
+            />
+            <path d="M11 20v-8" />
+          </svg>
+          Amazônia
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="cerrado"
+          data-logo="./src/images/Tamanduá-Bandeira(Cerrado).png"
+          data-image="./src/images/index/cerrado.jpg"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 21v-5" />
+            <path d="M12 16L8 12" />
+            <path d="M12 14l4-3" />
+            <circle cx="7" cy="11" r="3" />
+            <circle cx="16" cy="10" r="4" />
+            <circle cx="11" cy="7" r="4" />
+          </svg>
+          Cerrado
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="caatinga"
+          data-logo="./src/images/Lobo-Guara(Caatinga).png"
+          data-image="./src/images/index/caatinga.jpg"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3v18" />
+            <path d="M7 8v4a2 2 0 0 0 2 2h3" />
+            <path d="M17 10v3a2 2 0 0 1-2 2h-3" />
+          </svg>
+          Caatinga
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="mata-atlantica"
+          data-logo="./src/images/Mico-Leão-Dourado(Mata Atlântica).png"
+          data-image="./src/images/index/mata_atlantica.jpg"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+            <path d="M12 13v8" />
+          </svg>
+          Mata Atlântica
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="pantanal"
+          data-logo="./src/images/Tuiuiú(Pantanal).png"
+          data-image="./src/images/index/pantanal.jpeg"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <ellipse cx="12" cy="11" rx="9" ry="5" />
+            <path d="M12 11l6-4" />
+            <path d="M2 17c4 2 8 2 10 0s6-2 10 0" />
+          </svg>
+          Pantanal
+        </button>
+
+        <button
+          class="biome-btn"
+          data-biome="pampa"
+          data-logo="./src/images/Veado-Campeiro (Pampa).png"
+          data-image="./src/images/index/pampa.webp"
+        >
+          <svg
+            class="biome-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 15c5-2 7 1 11-3s7-1 9 1" />
+            <path d="M4 22h16" />
+          </svg>
+          Pampa
+        </button>
+      </div>
+
+      <div
+        id="cards-container"
+        class="animal-cards"
+        aria-live="polite"
+        aria-busy="true"
+      >
+        <div class="loading-indicator loading-indicator--wide" role="status">
+          <span class="loading-spinner" aria-hidden="true"></span>
+          <span>Carregando espécies…</span>
+        </div>
+      </div>
+      <button id="btn-ver-mais" class="btn-ver-mais" type="button" hidden>
+        Ver mais
+      </button>
+      <button
+        id="btn-adicionar-animal"
+        class="btn-adicionar-animal"
+        type="button"
+        hidden
+      >
+        <span aria-hidden="true">+</span>
+      </button>
+    </main>
+
+    <div id="animal-modal" class="modal-overlay hidden" aria-hidden="true">
+      <div class="modal-content">
+        <span id="close-modal-btn" class="close-btn">&times;</span>
+
+        <div class="modal-image-container">
+          <img id="modal-image" src="" alt="Fotografia do animal selecionado" />
+        </div>
+
+        <section class="modal-info">
+          <div class="modal-title-row">
+            <h1 id="modal-title">Nome da Espécie</h1>
+            <button
+              id="btn-editar-animal"
+              class="btn-editar-animal"
+              type="button"
+              title="Editar animal"
+              aria-label="Editar informações do animal"
+              hidden
+            >
+              <i class="fa-solid fa-pen" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <p id="modal-scientific" class="scientific-name">Nome Científico</p>
+
+          <span id="modal-status" class="status-badge"></span>
+          <button
+            id="start-animal-quiz"
+            class="animal-quiz-button"
+            type="button"
+            hidden
+          >
+            <span aria-hidden="true">✦</span> Responder quiz
+          </button>
+
+          <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="info">Informações</button>
+
+            <button class="tab-btn" data-tab="distribution">
+              Distribuição
+            </button>
+
+            <button class="tab-btn" data-tab="threats">Ameaças</button>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-info">
+              <div class="info-item">
+                <h3>Grupo</h3>
+
+                <p id="modal-type"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Porte</h3>
+
+                <p id="modal-size"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Habitat</h3>
+
+                <p id="modal-habitat"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Comportamento</h3>
+
+                <p id="modal-behavior"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Alimentação</h3>
+
+                <p id="modal-diet"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Tipo de dieta</h3>
+
+                <p id="modal-diet-type"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Características físicas</h3>
+
+                <p id="modal-physical"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Adaptações</h3>
+
+                <p id="modal-adaptation"></p>
+              </div>
+
+              <div class="info-item">
+                <h3>Você sabia?</h3>
+
+                <p id="modal-curiosity"></p>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab-distribution">
+              <div class="distribution-overview info-wide">
+                <div class="distribution-stat">
+                  <span class="distribution-stat-icon" aria-hidden="true"
+                    >N</span
+                  >
+                  <span
+                    ><strong id="modal-region-total">0</strong
+                    ><small>macrorregiões</small></span
+                  >
+                </div>
+                <div class="distribution-stat">
+                  <span
+                    class="distribution-stat-icon biome-stat-icon"
+                    aria-hidden="true"
+                    >✿</span
+                  >
+                  <span
+                    ><strong id="modal-biome-total">0</strong
+                    ><small>biomas</small></span
+                  >
+                </div>
+                <p
+                  id="modal-distribution-summary"
+                  class="distribution-summary-text"
+                ></p>
+              </div>
+
+              <div class="info-item distribution-card">
+                <h3>
+                  Regiões brasileiras
+                  <span id="modal-region-count" class="detail-count"></span>
+                </h3>
+                <div
+                  id="modal-distribution"
+                  class="modal-chip-list region-chip-list"
+                  role="list"
+                  aria-label="Regiões de ocorrência"
+                ></div>
+              </div>
+
+              <div class="info-item distribution-card">
+                <h3>
+                  Biomas associados
+                  <span id="modal-biome-count" class="detail-count"></span>
+                </h3>
+                <div
+                  id="modal-biome"
+                  class="modal-chip-list biome-chip-list"
+                  role="list"
+                  aria-label="Biomas de ocorrência"
+                ></div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="tab-threats">
+              <div class="info-item threat-card info-wide">
+                <div class="threat-card-heading">
+                  <div>
+                    <span class="threat-eyebrow">PRESSÕES SOBRE A ESPÉCIE</span>
+                    <h3>Principais ameaças</h3>
+                  </div>
+                  <span id="modal-threat-count" class="threat-count"></span>
+                </div>
+                <div
+                  id="modal-threat-tags"
+                  class="threat-chip-list"
+                  role="list"
+                  aria-label="Categorias de ameaça"
+                ></div>
+                <p id="modal-threats"></p>
+              </div>
+
+              <div class="info-item conservation-guidance info-wide">
+                <span class="conservation-icon" aria-hidden="true">✦</span>
+                <div>
+                  <h3>Como ajudar</h3>
+                  <p id="modal-conservation-guidance"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <dialog
+      class="animal-quiz-dialog"
+      id="animal-quiz-dialog"
+      aria-labelledby="animal-quiz-title"
+    >
+      <aside
+        class="species-card-toast"
+        id="species-card-toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+      >
+        <span class="species-card-toast-icon" aria-hidden="true">✦</span>
+        <div class="species-card-toast-copy">
+          <strong>Cartinha adicionada!</strong>
+          <span id="species-card-toast-message"></span>
+        </div>
+        <button
+          class="species-card-toast-dismiss"
+          id="dismiss-species-card-toast"
+          type="button"
+          aria-label="Fechar notificação"
+        >
+          ×
+        </button>
+      </aside>
+      <form id="animal-quiz-form">
+        <header class="animal-quiz-header">
+          <div class="animal-quiz-heading-copy">
+            <p class="animal-quiz-eyebrow">
+              <span aria-hidden="true">✦</span> GUIA DE CAMPO
+            </p>
+            <h2 id="animal-quiz-title">Quiz da espécie</h2>
+            <p class="animal-quiz-intro">
+              Explore características, habitat e conservação.
+            </p>
+          </div>
+          <img
+            class="animal-quiz-species-image"
+            id="animal-quiz-image"
+            alt=""
+            hidden
+          />
+          <button
+            type="button"
+            class="animal-quiz-close"
+            id="close-animal-quiz"
+            aria-label="Fechar quiz"
+          >
+            ×
+          </button>
+        </header>
+        <section
+          class="animal-quiz-species-info"
+          id="animal-quiz-species-info"
+          aria-label="Informações da espécie"
+        >
+          <div class="animal-quiz-section-heading">
+            <span class="animal-quiz-section-icon" aria-hidden="true">i</span>
+            <div>
+              <h3>Conheça antes de responder</h3>
+              <p>Use estas informações como referência.</p>
+            </div>
+          </div>
+          <dl>
+            <div>
+              <dt>Biomas</dt>
+              <dd id="quiz-animal-biome"></dd>
+            </div>
+            <div>
+              <dt>Habitat</dt>
+              <dd id="quiz-animal-habitat"></dd>
+            </div>
+            <div>
+              <dt>Alimentação</dt>
+              <dd id="quiz-animal-diet"></dd>
+            </div>
+            <div>
+              <dt>Porte</dt>
+              <dd id="quiz-animal-size"></dd>
+            </div>
+            <div>
+              <dt>Características</dt>
+              <dd id="quiz-animal-physical"></dd>
+            </div>
+            <div>
+              <dt>Adaptações</dt>
+              <dd id="quiz-animal-adaptation"></dd>
+            </div>
+            <div>
+              <dt>Curiosidade</dt>
+              <dd id="quiz-animal-curiosity"></dd>
+            </div>
+          </dl>
+        </section>
+        <div id="animal-quiz-questions" class="animal-quiz-questions"></div>
+        <p
+          id="animal-quiz-message"
+          class="animal-quiz-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+        <section
+          class="animal-quiz-review"
+          id="animal-quiz-review"
+          aria-labelledby="animal-quiz-review-title"
+          aria-live="polite"
+          hidden
+        >
+          <div class="animal-quiz-review-heading">
+            <span
+              class="animal-quiz-review-icon"
+              id="animal-quiz-review-icon"
+              aria-hidden="true"
+              >i</span
+            >
+            <div>
+              <p class="animal-quiz-eyebrow">REVISÃO EDUCATIVA</p>
+              <h3 id="animal-quiz-review-title">Confira as respostas</h3>
+              <p id="animal-quiz-review-message"></p>
+            </div>
+          </div>
+          <article
+            class="animal-quiz-card-saved"
+            id="animal-quiz-card-saved"
+            hidden
+          >
+            <img id="animal-quiz-card-image" alt="" hidden />
+            <div>
+              <p class="animal-quiz-eyebrow">CARTINHA DA ESPÉCIE</p>
+              <h4 id="animal-quiz-card-title"></h4>
+              <p id="animal-quiz-card-message"></p>
+            </div>
+          </article>
+          <div
+            class="animal-quiz-review-list"
+            id="animal-quiz-review-list"
+          ></div>
+        </section>
+        <footer class="animal-quiz-actions">
+          <button
+            type="button"
+            class="animal-quiz-retry"
+            id="retry-animal-quiz"
+            hidden
+          >
+            Tentar novamente
+          </button>
+          <button
+            type="button"
+            class="animal-quiz-done"
+            id="close-animal-quiz-review"
+            hidden
+          >
+            Voltar ao catálogo
+          </button>
+          <button type="submit" class="animal-quiz-submit">
+            Verificar respostas
+          </button>
+        </footer>
+      </form>
+    </dialog>
+
+    <!-- Modal de cadastro de animais -->
+    <div id="modal-adicionar-animal" class="modal-overlay hidden">
+      <div class="modal-content modal-cadastro-animal">
+        <button
+          type="button"
+          class="modal-close"
+          id="fechar-modal-adicionar"
+          aria-label="Fechar"
+        >
+          &times;
+        </button>
+
+        <h2 id="titulo-modal-animal">Adicionar novo animal</h2>
+        <p>Preencha as informações da nova espécie.</p>
+
+        <form id="form-adicionar-animal">
+          <h3>Identificação</h3>
+
+          <label for="novo-nome">Nome popular *</label>
+          <input
+            type="text"
+            id="novo-nome"
+            name="nome"
+            required
+            maxlength="100"
+          />
+
+          <label for="novo-nome-cientifico">Nome científico *</label>
+          <input
+            type="text"
+            id="novo-nome-cientifico"
+            name="nome_cientifico"
+            required
+            maxlength="150"
+          />
+
+          <label for="novo-status">Status de conservação *</label>
+          <select id="novo-status" name="status" required>
+            <option value="">Selecione</option>
+            <option value="Pouco Preocupante" data-class="pouco-preocupante">
+              Pouco Preocupante
+            </option>
+            <option value="Quase ameaçada" data-class="quase-ameacada">
+              Quase ameaçada
+            </option>
+            <option value="Vulnerável" data-class="vulneravel">
+              Vulnerável
+            </option>
+            <option value="Em Perigo" data-class="em-perigo">Em Perigo</option>
+            <option value="Criticamente em perigo" data-class="critico">
+              Criticamente em perigo
+            </option>
+          </select>
+
+          <input type="hidden" id="novo-status-class" name="status_class" />
+
+          <label for="novo-tipo">Tipo de animal</label>
+          <select id="novo-tipo" name="tipo">
+            <option value="">Selecione o tipo</option>
+            <option value="Mamífero">Mamífero</option>
+            <option value="Ave">Ave</option>
+            <option value="Anfíbio">Anfíbio</option>
+            <option value="Réptil">Réptil</option>
+          </select>
+
+          <h3>Localização</h3>
+
+          <label>Regiões de ocorrência</label>
+
+          <div class="regioes-cadastro">
+            <label>
+              <input type="checkbox" name="regiao" value="Norte" />
+              Norte
+            </label>
+            <label>
+              <input type="checkbox" name="regiao" value="Nordeste" />
+              Nordeste
+            </label>
+            <label>
+              <input type="checkbox" name="regiao" value="Centro-Oeste" />
+              Centro-Oeste
+            </label>
+            <label>
+              <input type="checkbox" name="regiao" value="Sudeste" />
+              Sudeste
+            </label>
+            <label>
+              <input type="checkbox" name="regiao" value="Sul" />
+              Sul
+            </label>
+          </div>
+
+          <label>Biomas</label>
+          <div class="biomas-cadastro">
+            <label
+              ><input type="checkbox" name="bioma" value="Amazônia" />
+              Amazônia</label
+            >
+            <label
+              ><input type="checkbox" name="bioma" value="Cerrado" />
+              Cerrado</label
+            >
+            <label
+              ><input type="checkbox" name="bioma" value="Caatinga" />
+              Caatinga</label
+            >
+            <label
+              ><input type="checkbox" name="bioma" value="Mata Atlântica" />
+              Mata Atlântica</label
+            >
+            <label
+              ><input type="checkbox" name="bioma" value="Pantanal" />
+              Pantanal</label
+            >
+            <label
+              ><input type="checkbox" name="bioma" value="Pampa" /> Pampa</label
+            >
+          </div>
+
+          <h3>Imagem</h3>
+
+          <label for="novo-imagem">Endereço da imagem</label>
+          <input
+            type="text"
+            id="novo-imagem"
+            name="imagem"
+            placeholder="https://..."
+          />
+
+          <p class="separador-imagem">Ou escolha uma imagem do computador</p>
+
+          <label for="novo-arquivo-imagem">Selecionar arquivo</label>
+          <input
+            type="file"
+            id="novo-arquivo-imagem"
+            name="arquivo_imagem"
+            accept="image/*"
+          />
+
+          <label for="novo-imagem-fonte">Fonte da imagem</label>
+          <input type="text" id="novo-imagem-fonte" name="imagem_fonte" />
+
+          <label for="novo-imagem-credito">Créditos da imagem</label>
+          <textarea id="novo-imagem-credito" name="imagem_credito"></textarea>
+
+          <h3>Características e informações</h3>
+
+          <label for="novo-porte">Porte</label>
+          <input type="text" id="novo-porte" name="porte" />
+
+          <label for="novo-habitat">Habitat</label>
+          <textarea id="novo-habitat" name="habitat"></textarea>
+
+          <label for="novo-comportamento">Comportamento</label>
+          <textarea id="novo-comportamento" name="comportamento"></textarea>
+
+          <label for="novo-caracteristicas">Características físicas</label>
+          <textarea
+            id="novo-caracteristicas"
+            name="caracteristicas_fisicas"
+          ></textarea>
+
+          <label for="novo-alimentacao">Alimentação</label>
+          <textarea id="novo-alimentacao" name="alimentacao"></textarea>
+
+          <label for="novo-dieta">Tipo de dieta</label>
+          <input type="text" id="novo-dieta" name="dieta_tipo" />
+
+          <label for="novo-adaptacao">Adaptações</label>
+          <textarea id="novo-adaptacao" name="adaptacao"></textarea>
+
+          <label for="novo-ameacas">Ameaças</label>
+          <textarea id="novo-ameacas" name="ameacas"></textarea>
+
+          <label for="novo-curiosidade">Curiosidades</label>
+          <textarea id="novo-curiosidade" name="curiosidade"></textarea>
+
+          <label for="novo-orientacao">Orientações de conservação</label>
+          <textarea
+            id="novo-orientacao"
+            name="orientacao_conservacao"
+          ></textarea>
+
+          <div class="acoes-cadastro-animal">
+            <button type="button" id="cancelar-cadastro-animal">
+              Cancelar
+            </button>
+
+            <button type="submit" id="btn-salvar-animal">
+              Cadastrar animal
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer" id="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a
+            class="footer-logo"
+            href="index.html#main"
+            aria-label="Vida Terrestre — início"
+          >
+            <img
+              src="./src/images/Arara-Azul(Logo-Principal).png"
+              alt="Vida Terrestre"
+            />
+          </a>
+          <p class="footer-tagline">Conectando você à natureza.</p>
+          <p class="footer-description">
+            Conheça a biodiversidade brasileira e descubra por que proteger cada
+            espécie importa.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <h2>Explore</h2>
+          <a href="index.html#main">Início</a>
+          <a href="explorar.html">Espécies</a>
+          <a href="biomas.html">Biomas</a>
+          <a href="conscientizacao.html">Conservação</a>
+        </nav>
+        <nav class="footer-links" aria-label="Sobre o projeto">
+          <h2>Sobre o projeto</h2>
+          <a href="index.html#sobre-projeto">Nossa missão</a>
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/15"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ODS 15</a
+          >
+          <a
+            href="https://github.com/Wellington-S-Dias/Vida-Terrestre-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Projeto acadêmico</a
+          >
+        </nav>
+        <div class="footer-social">
+          <h2>Acompanhe e compartilhe</h2>
+          <div class="footer-social-links">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contatovidaterrestre%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escrever e-mail para Vida Terrestre"
+              title="Escrever e-mail"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m4 7 8 6 8-6" /></svg
+            ></a>
+            <a
+              href="https://www.instagram.com/vidaterrestre2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Instagram"
+              title="Instagram"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17.5 6.5h.01" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-creditos">
+        <div class="footer-project-note">
+          <svg class="footer-leaf" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.8 3.2C11.4 3.1 5.2 5.5 3.4 11.1c-1.1 3.4 1 6.4 4.3 6.4 5.9 0 10.8-6.4 13.1-14.3Z"
+            />
+            <path d="M3 22c3.2-5.1 7.3-9.2 13-13" />
+          </svg>
+          <div>
+            <strong>Preservar hoje. Garantir o amanhã.</strong
+            ><span>Projeto acadêmico · ODS 15</span>
+          </div>
+        </div>
+        <p>© 2026 Vida Terrestre. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="./js/transicao-biomas.js"></script>
+    <script src="./js/animais.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/quiz-animais.js"></script>
+    <script src="./js/barra-lateral-conta.js"></script>
+    <script src="./js/folhagem.js"></script>
+  </body>
+</html>
