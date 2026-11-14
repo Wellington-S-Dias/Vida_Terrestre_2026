@@ -7,7 +7,7 @@
 <p align="center"><strong>Uma plataforma educativa sobre a fauna, os biomas brasileiros e a conservação da biodiversidade.</strong></p>
 
 <p align="center">
-  <a href="https://wellington-s-dias.github.io/Vida-Terrestre-2026/">Visitar a versão estática</a>
+  <a href="https://wellington-s-dias.github.io/Vida_Terrestre_2026/">Visitar a versão estática</a>
 </p>
 
 ## Sobre o projeto
