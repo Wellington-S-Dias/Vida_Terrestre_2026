@@ -1,0 +1,104 @@
+.site-alert-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(440px, calc(100% - 28px));
+  max-height: min(86vh, 620px);
+  padding: 26px;
+  overflow: auto;
+  color: var(--text-primary, #eaf1f8);
+  border: 1px solid rgba(120, 184, 42, 0.38);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #0b2d45, #071a31 72%);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+.site-alert-dialog::backdrop {
+  background: rgba(2, 8, 23, 0.76);
+  backdrop-filter: blur(7px);
+}
+.site-alert-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.site-alert-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 13px;
+  color: #a1d449;
+  background: rgba(120, 184, 42, 0.15);
+  font-size: 22px;
+  font-weight: 700;
+}
+.site-alert-dialog[data-type="success"] .site-alert-icon {
+  color: #b9ed72;
+  background: rgba(120, 184, 42, 0.16);
+}
+.site-alert-dialog[data-type="warning"] .site-alert-icon {
+  color: #ffd27a;
+  background: rgba(255, 181, 73, 0.14);
+}
+.site-alert-dialog[data-type="error"] .site-alert-icon {
+  color: #ff9b9b;
+  background: rgba(220, 45, 55, 0.15);
+}
+.site-alert-kicker {
+  color: var(--brand-sunlit, #a1d449);
+  font:
+    700 0.65rem "Inter",
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.site-alert-title {
+  margin: 3px 0 0;
+  font:
+    700 1.2rem/1.3 "Poppins",
+    sans-serif;
+}
+.site-alert-message {
+  margin: 18px 0 24px;
+  color: var(--text-secondary, #afbdce);
+  font:
+    0.9rem/1.6 "Inter",
+    sans-serif;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.site-alert-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.site-alert-actions button {
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 999px;
+  font:
+    600 0.8rem "Poppins",
+    sans-serif;
+  cursor: pointer;
+}
+.site-alert-cancel {
+  border: 1px solid rgba(234, 241, 248, 0.25);
+  color: var(--text-secondary, #afbdce);
+  background: transparent;
+}
+.site-alert-confirm {
+  border: 1px solid var(--brand-sunlit, #a1d449);
+  color: #10200c;
+  background: var(--brand-sunlit, #a1d449);
+}
+.site-alert-confirm:hover {
+  filter: brightness(1.08);
+}
+.site-alert-actions button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+.site-alert-actions [hidden] {
+  display: none !important;
+}

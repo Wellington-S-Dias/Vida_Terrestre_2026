@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Imagem de espécie em preparação</title>
+  <desc id="desc">Ilustração abstrata de folhas em tons de verde sobre fundo de floresta.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#143d35"/>
+      <stop offset="1" stop-color="#071b1a"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#b8df87"/>
+      <stop offset="1" stop-color="#4b9a70"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <circle cx="480" cy="290" r="190" fill="#d8e9a8" opacity=".07"/>
+  <g fill="url(#leaf)" opacity=".9">
+    <path d="M434 410C335 360 290 264 311 162c91 30 151 96 158 183-1 25-11 46-35 65Z"/>
+    <path d="M510 392c-13-111 36-208 137-264 36 96 23 188-41 252-20 18-43 23-70 12Z"/>
+    <path d="M474 431c45-88 135-133 249-119-20 93-77 156-164 174-31 3-58-12-85-55Z"/>
+  </g>
+  <g fill="none" stroke="#d8e9a8" stroke-linecap="round" stroke-width="8" opacity=".62">
+    <path d="M464 443c-5-95-52-175-132-240"/>
+    <path d="M475 434c25-103 79-186 158-245"/>
+    <path d="M478 440c72-72 150-103 232-108"/>
+  </g>
+  <text x="480" y="525" fill="#d8e9a8" font-family="Arial, sans-serif" font-size="24" letter-spacing="3" text-anchor="middle" opacity=".86">VIDA TERRESTRE</text>
+</svg>

@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "start": "node server/servidor.js",
+    "importar:imagens": "node scripts/importar-imagens-animais.js"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "express-session": "^1.19.0",
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}

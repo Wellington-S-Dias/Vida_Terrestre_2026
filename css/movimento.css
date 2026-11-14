@@ -1,0 +1,502 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: site-page-out 160ms ease both;
+}
+
+::view-transition-new(root) {
+  animation: site-page-in 260ms ease both;
+}
+
+::view-transition-group(site-sidebar-active) {
+  animation-duration: 440ms;
+  animation-timing-function: cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+::view-transition-old(site-sidebar-active),
+::view-transition-new(site-sidebar-active) {
+  animation-duration: 360ms;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(site-news-results) {
+  animation: site-content-out 140ms ease both;
+}
+
+::view-transition-new(site-news-results) {
+  animation: site-content-in 320ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes site-page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes site-page-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes site-content-out {
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes site-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.site-motion .site-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0) scale(0.99);
+  transition:
+    opacity 540ms ease var(--motion-delay, 0ms),
+    transform 540ms cubic-bezier(0.2, 0.75, 0.25, 1) var(--motion-delay, 0ms);
+}
+
+html.site-motion .site-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+html.site-motion :is(a, button) {
+  transition:
+    color 180ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 240ms ease,
+    filter 220ms ease,
+    transform 220ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+html.site-motion :is(input, select, textarea) {
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 220ms ease;
+}
+
+/* A mesma pílula verde acompanha a seleção entre páginas. */
+.nav-menu a.is-current,
+.nav-menu a.is-current:hover,
+.nav-menu a.is-current:focus-visible,
+body[data-biome] .nav-menu a.is-current,
+body[data-biome] .nav-menu a.is-current:hover,
+body[data-biome] .nav-menu a.is-current:focus-visible {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+.nav-menu a.is-current::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--showcase-lime, var(--brand-leaf, #649633));
+  content: "";
+  view-transition-name: site-sidebar-active;
+}
+
+body[data-biome] .nav-menu a.is-current::after {
+  background: var(--theme-signature, var(--brand-leaf, #649633));
+}
+
+/* Native dialogs fade and scale in, and stay in the top layer while closing. */
+html.site-motion dialog:not(.filter-drawer) {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  transition:
+    opacity 240ms ease,
+    transform 300ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    display 280ms allow-discrete,
+    overlay 280ms allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+html.site-motion dialog:not(.filter-drawer)[open] {
+  opacity: 1;
+  transform: none;
+}
+
+html.site-motion dialog::backdrop {
+  opacity: 0;
+  transition:
+    opacity 260ms ease,
+    display 280ms allow-discrete,
+    overlay 280ms allow-discrete;
+}
+
+html.site-motion dialog[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  html.site-motion dialog:not(.filter-drawer)[open] {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  html.site-motion dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+html.site-motion .filter-drawer {
+  transform: translateX(100%);
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    display 320ms allow-discrete,
+    overlay 320ms allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+html.site-motion .filter-drawer[open] {
+  transform: translateX(0);
+  animation: none;
+}
+
+@starting-style {
+  html.site-motion .filter-drawer[open] {
+    transform: translateX(100%);
+  }
+}
+
+/* Custom species and admin dialogs animate their panel and dimmed backdrop. */
+html.site-motion .modal-overlay {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 260ms ease,
+    background-color 260ms ease,
+    visibility 0s;
+}
+
+html.site-motion .modal-overlay.hidden {
+  display: flex !important;
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+  pointer-events: none;
+  transition:
+    opacity 260ms ease,
+    background-color 260ms ease,
+    visibility 0s linear 260ms;
+}
+
+html.site-motion .modal-overlay .modal-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 220ms ease,
+    transform 300ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+html.site-motion .modal-overlay.hidden .modal-content {
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+}
+
+/* Panels and result lists change without a hard cut. */
+html.site-motion .tab-pane {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 220ms ease,
+    transform 260ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    display 240ms allow-discrete;
+  transition-behavior: allow-discrete;
+}
+
+html.site-motion .tab-pane.active {
+  opacity: 1;
+  transform: none;
+}
+
+@starting-style {
+  html.site-motion .tab-pane.active {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+html.site-motion .tabs-nav .tab-btn::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--active-color, var(--brand-sunlit, #a1d449));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 240ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+html.site-motion .tabs-nav .tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.news-grid {
+  view-transition-name: site-news-results;
+}
+
+html.site-motion .news-grid {
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+html.site-motion .news-grid.is-switching {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+html.site-motion .biome-detail.is-changing .biome-hero-copy,
+html.site-motion .biome-detail.is-changing .biome-detail-content {
+  animation: site-biome-content-in 420ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes site-biome-content-in {
+  from {
+    opacity: 0.25;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) {
+  html.site-motion
+    :is(
+      .about-cards,
+      .card,
+      .info-card,
+      .login-card,
+      .impact-cards > article,
+      .chart-card,
+      .species-card,
+      .action-list > article,
+      .partners-grid > a,
+      .news-card,
+      .biome-fact,
+      .biome-legend > button,
+      .profile-species-card
+    ) {
+    transition:
+      transform 260ms cubic-bezier(0.2, 0.75, 0.25, 1),
+      box-shadow 260ms ease,
+      border-color 260ms ease,
+      background-color 260ms ease;
+  }
+
+  html.site-motion
+    :is(
+      .about-cards,
+      .card,
+      .info-card,
+      .login-card,
+      .impact-cards > article,
+      .chart-card,
+      .species-card,
+      .action-list > article,
+      .partners-grid > a,
+      .news-card,
+      .biome-fact,
+      .biome-legend > button,
+      .profile-species-card
+    ):hover {
+    transform: translate3d(0, -5px, 0) scale(1.01);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+  }
+
+  html.site-motion .impact-cards > article:nth-child(3n + 1):hover,
+  html.site-motion .charts-grid > .chart-card:nth-child(3n + 1):hover,
+  html.site-motion .partners-grid > a:nth-child(3n + 1):hover {
+    transform: translate3d(0, -5px, 0) rotate(-0.4deg) scale(1.01);
+  }
+
+  html.site-motion .impact-cards > article:nth-child(3n + 2):hover,
+  html.site-motion .charts-grid > .chart-card:nth-child(3n + 2):hover,
+  html.site-motion .partners-grid > a:nth-child(3n + 2):hover {
+    transform: translate3d(0, -5px, 0) rotate(0.35deg) scale(1.01);
+  }
+
+  html.site-motion
+    :is(
+      .biome-btn,
+      .news-tab,
+      .edit-profile-button,
+      .profile-save-button
+    ):hover {
+    transform: translateY(-2px);
+  }
+
+  html.site-motion .side-bar .nav-menu a:hover {
+    transform: translateX(-3px);
+  }
+}
+
+html.site-motion :is(a, button):active {
+  transform: scale(0.98);
+}
+
+/* Preenche os gráficos quando seus cartões entram na tela. */
+html.site-motion .bar-track i {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: none;
+}
+
+html.site-motion .chart-card.is-visible .bar-track i {
+  animation: site-chart-fill 950ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+html.site-motion .bar-row:nth-child(2) .bar-track i {
+  animation-delay: 100ms;
+}
+
+html.site-motion .bar-row:nth-child(3) .bar-track i {
+  animation-delay: 200ms;
+}
+
+html.site-motion .trend-card .trend-line {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+}
+
+html.site-motion .trend-card .trend-area {
+  clip-path: inset(100% 0 0 0);
+  opacity: 0;
+}
+
+html.site-motion .trend-card.is-visible .trend-line {
+  animation: site-chart-draw 1.1s cubic-bezier(0.2, 0.75, 0.25, 1) 120ms both;
+}
+
+html.site-motion .trend-card.is-visible .trend-area {
+  animation: site-chart-area 850ms ease 350ms both;
+}
+
+html.site-motion .trend-card.is-visible circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: site-chart-point 380ms cubic-bezier(0.2, 0.75, 0.25, 1) 900ms both;
+}
+
+html.site-motion .pie-card.is-visible .donut {
+  transform-origin: center;
+  animation: site-chart-appear 850ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes site-chart-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes site-chart-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes site-chart-area {
+  to {
+    clip-path: inset(0);
+    opacity: 1;
+  }
+}
+
+@keyframes site-chart-point {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes site-chart-appear {
+  from {
+    opacity: 0.55;
+    transform: scale(0.82) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.site-motion .site-reveal,
+  html.site-motion .site-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html.site-motion .bar-track i,
+  html.site-motion .chart-card.is-visible .bar-track i,
+  html.site-motion .trend-card .trend-line,
+  html.site-motion .trend-card .trend-area,
+  html.site-motion .trend-card.is-visible circle,
+  html.site-motion .pie-card.is-visible .donut {
+    animation: none;
+    clip-path: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+    transform: none;
+  }
+
+  .bar-track i {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(site-sidebar-active),
+  ::view-transition-old(site-sidebar-active),
+  ::view-transition-new(site-sidebar-active),
+  ::view-transition-group(site-news-results),
+  ::view-transition-old(site-news-results),
+  ::view-transition-new(site-news-results) {
+    animation-duration: 0.01ms !important;
+  }
+}

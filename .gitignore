@@ -1,0 +1,17 @@
+# Vídeos
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos do sistema
+Thumbs.db
+.DS_Store
+node_modules/
+.env
+relatorios-imagens/

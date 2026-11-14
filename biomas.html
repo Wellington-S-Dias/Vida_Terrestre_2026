@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça os seis biomas brasileiros e suas paisagens, climas e biodiversidade."
+    />
+    <title>Biomas brasileiros</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./src/images/Arara-Azul(Logo-Principal).png"
+    />
+    <link rel="stylesheet" href="/css/paleta.css" />
+    <link rel="stylesheet" href="/css/barra-lateral.css" />
+    <link rel="stylesheet" href="/css/biomas.css" />
+    <link rel="stylesheet" href="/css/rodape.css" />
+    <link rel="stylesheet" href="/css/aparencia.css" />
+    <link rel="stylesheet" href="/css/carregamento.css" />
+    <link rel="stylesheet" href="/css/movimento.css" />
+    <link rel="stylesheet" href="/css/alertas.css" />
+    <link rel="stylesheet" href="/css/responsivo.css" />
+    <script src="/js/movimento.js" defer></script>
+    <script src="/js/alertas.js" defer></script>
+  </head>
+  <body class="biomes-site" data-biome="default">
+    <header class="side-bar">
+      <div class="side-bar-logo">
+        <a href="index.html" aria-label="Vida Terrestre — início"
+          ><img
+            src="./src/images/Arara-Azul(Logo-Principal).png"
+            alt="Logotipo Vida Terrestre"
+        /></a>
+      </div>
+      <nav class="nav-menu" aria-label="Navegação principal">
+        <a href="index.html" aria-label="Início"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"
+            /></svg
+          ><span class="nav-label">Início</span></a
+        >
+        <a href="explorar.html" aria-label="Explorar"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8" />
+            <path d="m16 16 5 5M8 10.8h5.6M10.8 8v5.6" /></svg
+          ><span class="nav-label">Explorar</span></a
+        >
+        <a
+          class="is-current"
+          href="biomas.html"
+          aria-current="page"
+          aria-label="Biomas"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" />
+            <path d="M12 12c0-4 2.2-6.5 6-7.5 0 4.5-2.2 7.5-6 8.5Z" />
+            <path d="M5 21h14" /></svg
+          ><span class="nav-label">Biomas</span></a
+        >
+        <a
+          class="awareness-nav"
+          href="conscientizacao.html"
+          aria-label="Conscientização"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21V11" />
+            <path d="M12 15c-3.5 0-6-2-6-6 3.7 0 6 2 6 6Z" /></svg
+          ><span class="nav-label">Conscientização</span></a
+        >
+        <a class="news-nav" href="noticias.html" aria-label="Notícias"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15.5A2.5 2.5 0 0 0 17.5 16H4z"
+            />
+            <path d="M4 5.5v14A2.5 2.5 0 0 0 6.5 22H20V18.5" />
+            <path d="M8 7h8M8 10.5h8" /></svg
+          ><span class="nav-label">Notícias</span></a
+        >
+        <a class="entrar" href="entrar.html" aria-label="Entrar"
+          ><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0z" /></svg
+          ><span class="nav-label">Entrar</span></a
+        >
+      </nav>
+    </header>
+    <main class="biomes-page" id="conteudo">
+      <header class="biomes-intro" aria-labelledby="page-title">
+        <div class="biomes-intro-body">
+          <h1 id="page-title">Explore os biomas do <span>Brasil</span></h1>
+        </div>
+      </header>
+
+      <section
+        class="biomes-workspace"
+        aria-label="Exploração interativa dos biomas"
+      >
+        <section class="map-panel" aria-labelledby="map-heading">
+          <header class="map-panel-heading">
+            <div>
+              <h2 id="map-heading">Escolha um bioma</h2>
+            </div>
+            <p class="map-hint">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M8 11V5a2 2 0 0 1 4 0v5-2a2 2 0 0 1 4 0v3-1a2 2 0 0 1 4 0v5a7 7 0 0 1-7 7h-1a7 7 0 0 1-5-2l-4-4a2 2 0 0 1 3-3l2 2"
+                />
+              </svg>
+              <span>Selecione uma área no mapa</span>
+            </p>
+          </header>
+
+          <div class="biome-map-layout">
+            <div
+              id="biome-map"
+              class="biome-map"
+              aria-label="Mapa interativo do Brasil dividido por biomas"
+              aria-busy="true"
+            >
+              <div
+                class="loading-indicator loading-indicator--wide loading-indicator--map"
+                role="status"
+              >
+                <span class="loading-spinner" aria-hidden="true"></span>
+                <span>Carregando mapa…</span>
+              </div>
+            </div>
+            <nav class="biome-legend" aria-label="Selecionar um bioma">
+              <button
+                type="button"
+                data-biome-select="amazonia"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Amazônia</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button
+                type="button"
+                data-biome-select="cerrado"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Cerrado</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button
+                type="button"
+                data-biome-select="caatinga"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Caatinga</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button
+                type="button"
+                data-biome-select="mata-atlantica"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Mata Atlântica</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button
+                type="button"
+                data-biome-select="pantanal"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Pantanal</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+              <button
+                type="button"
+                data-biome-select="pampa"
+                aria-pressed="false"
+              >
+                <span class="legend-swatch" aria-hidden="true"></span
+                ><span class="legend-name">Pampa</span
+                ><span class="legend-arrow" aria-hidden="true">↗</span>
+              </button>
+            </nav>
+          </div>
+
+          <span
+            class="visually-hidden"
+            id="biome-selection-state"
+            aria-live="polite"
+          ></span>
+        </section>
+
+        <article class="biome-detail" aria-live="polite" aria-atomic="true">
+          <header class="biome-hero">
+            <img
+              id="biome-hero-image"
+              src="./src/images/index/padrao.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="biome-hero-shade"></div>
+            <img id="biome-mascot" class="biome-mascot" alt="" hidden />
+            <div class="biome-hero-copy">
+              <h2 id="biome-title">Explore os biomas brasileiros</h2>
+              <p id="biome-tagline">
+                Selecione uma região no mapa para descobrir mais.
+              </p>
+            </div>
+          </header>
+
+          <div class="biome-detail-content">
+            <p class="biome-description" id="biome-description">
+              O Brasil reúne seis biomas, cada um com paisagens, clima e
+              espécies próprias. Selecione uma região no mapa para conhecer
+              melhor sua natureza.
+            </p>
+
+            <div class="biome-facts">
+              <section class="biome-fact">
+                <span class="fact-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M3 15a4 4 0 0 1 4-4 5 5 0 0 1 9.6-1.7A3.5 3.5 0 1 1 18 16H7a4 4 0 0 1-4-1Z"
+                    />
+                    <path d="M7 20h.01M12 20h.01M17 20h.01" /></svg
+                ></span>
+                <div>
+                  <h3>Clima</h3>
+                  <p id="biome-climate">
+                    Do tropical úmido ao subtropical, varia entre as regiões do
+                    país.
+                  </p>
+                </div>
+              </section>
+              <section class="biome-fact">
+                <span class="fact-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M20.5 3.5C11.4 3.5 5.4 6 4 11.2c-.9 3.2 1 5.8 4 5.8 5.7 0 10.2-5.7 12.5-13.5Z"
+                    />
+                    <path d="M3 21c3.2-5.1 7.2-9.2 13-13" /></svg
+                ></span>
+                <div>
+                  <h3>Vegetação</h3>
+                  <p id="biome-vegetation">
+                    Florestas, savanas, campos e áreas alagáveis compõem
+                    diferentes paisagens.
+                  </p>
+                </div>
+              </section>
+              <section class="biome-fact">
+                <span class="fact-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M7.5 12.5c1.2 0 2.2-1.4 2.2-3.1S8.7 6.3 7.5 6.3 5.3 7.7 5.3 9.4s1 3.1 2.2 3.1ZM16.5 12.5c1.2 0 2.2-1.4 2.2-3.1s-1-3.1-2.2-3.1-2.2 1.4-2.2 3.1 1 3.1 2.2 3.1ZM5 15.2c-1.6 0-2.8 1.3-2.8 3s1.3 2.7 3.1 2.7c2 0 3.3-1.7 6.7-1.7s4.7 1.7 6.7 1.7c1.8 0 3.1-1 3.1-2.7s-1.2-3-2.8-3c-2.4 0-3.8 1.5-7 1.5s-4.6-1.5-7-1.5Z"
+                    /></svg
+                ></span>
+                <div>
+                  <h3>Fauna</h3>
+                  <p id="biome-fauna">
+                    Uma grande variedade de espécies vive nos biomas
+                    brasileiros.
+                  </p>
+                </div>
+              </section>
+              <section class="biome-fact">
+                <span class="fact-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M20 10c0 5.2-8 11-8 11S4 15.2 4 10a8 8 0 1 1 16 0Z"
+                    />
+                    <circle cx="12" cy="10" r="2.5" /></svg
+                ></span>
+                <div>
+                  <h3>Onde ocorre</h3>
+                  <p id="biome-range">
+                    Os seis biomas se distribuem por todas as regiões do Brasil.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <aside class="biome-curiosity">
+              <span class="curiosity-mark" aria-hidden="true">✳</span>
+              <div>
+                <h3>Curiosidade</h3>
+                <p id="biome-curiosity">
+                  Cada bioma combina condições próprias de clima, solo,
+                  vegetação e fauna.
+                </p>
+              </div>
+            </aside>
+
+            <div class="biome-bottom-image-frame">
+              <img
+                id="biome-bottom-image"
+                src="./src/images/index/padrao.jpg"
+                alt="Paisagem brasileira"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="footer" id="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a
+            class="footer-logo"
+            href="index.html#main"
+            aria-label="Vida Terrestre — início"
+          >
+            <img
+              src="./src/images/Arara-Azul(Logo-Principal).png"
+              alt="Vida Terrestre"
+            />
+          </a>
+          <p class="footer-tagline">Conectando você à natureza.</p>
+          <p class="footer-description">
+            Conheça a biodiversidade brasileira e descubra por que proteger cada
+            espécie importa.
+          </p>
+        </div>
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <h2>Explore</h2>
+          <a href="index.html#main">Início</a>
+          <a href="explorar.html">Espécies</a>
+          <a href="biomas.html">Biomas</a>
+          <a href="conscientizacao.html">Conservação</a>
+          <a href="noticias.html">Notícias</a>
+        </nav>
+        <nav class="footer-links" aria-label="Sobre o projeto">
+          <h2>Sobre o projeto</h2>
+          <a href="index.html#sobre-projeto">Nossa missão</a>
+          <a
+            href="https://brasil.un.org/pt-br/sdgs/15"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ODS 15</a
+          >
+          <a href="https://github.com/Wellington-S-Dias/Vida_Terrestre_2026" target="_blank" rel="noopener noreferrer">Projeto acadêmico</a>
+        </nav>
+        <div class="footer-social">
+          <h2>Acompanhe e compartilhe</h2>
+          <div class="footer-social-links">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=contatovidaterrestre%40gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Escrever e-mail para Vida Terrestre"
+              title="Escrever e-mail"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m4 7 8 6 8-6" /></svg
+            ></a>
+            <a
+              href="https://www.instagram.com/vidaterrestre2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir Instagram"
+              title="Instagram"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17.5 6.5h.01" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom" id="footer-creditos">
+        <div class="footer-project-note">
+          <svg class="footer-leaf" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.8 3.2C11.4 3.1 5.2 5.5 3.4 11.1c-1.1 3.4 1 6.4 4.3 6.4 5.9 0 10.8-6.4 13.1-14.3Z"
+            />
+            <path d="M3 22c3.2-5.1 7.3-9.2 13-13" />
+          </svg>
+          <div>
+            <strong>Preservar hoje. Garantir o amanhã.</strong
+            ><span>Projeto acadêmico · ODS 15</span>
+          </div>
+        </div>
+        <p>© 2026 Vida Terrestre. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+    <script src="./js/mapa-biomas.js"></script>
+    <script src="./js/barra-lateral-conta.js"></script>
+  </body>
+</html>

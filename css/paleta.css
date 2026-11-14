@@ -1,0 +1,241 @@
+:root {
+  --brand-ink: #031127;
+  --brand-night: #071a31;
+  --brand-forest: #0b2d45;
+  --brand-leaf: #426e1d;
+  --brand-canopy: #5f8f2a;
+  --brand-sunlit: #78a341;
+  --text-primary: #eaf1f8;
+  --text-secondary: #afbdce;
+  --blue-dark: var(--brand-ink);
+  --blue: var(--brand-forest);
+  --blue-primary: var(--brand-leaf);
+  --cyan: #3e8af2;
+  --primary-green: var(--brand-leaf);
+  --green-dark: var(--brand-ink);
+  --green: var(--brand-forest);
+  --green-primary: var(--brand-leaf);
+  --green-light: var(--brand-sunlit);
+  --bg-primary: var(--brand-ink);
+  --bg-main: var(--brand-ink);
+  --bg-dark: var(--brand-ink);
+  --filter-area: var(--brand-night);
+  --bg-secondary: var(--brand-night);
+  --bg-input: var(--brand-night);
+  --inputs-bg: rgba(7, 26, 49, 0.9);
+  --card-bg: var(--brand-night);
+  --bg-card: var(--brand-night);
+  --bg-card-light: var(--brand-forest);
+  --active-color: var(--brand-leaf);
+  --primary-color: var(--brand-leaf);
+  --border-color: rgba(86, 140, 191, 0.24);
+  --border: rgba(86, 140, 191, 0.24);
+  --theme-signature: var(--brand-leaf);
+  --theme-card: var(--brand-night);
+  --theme-detail: var(--brand-canopy);
+  --theme-text: var(--text-primary);
+}
+
+body[data-biome="default"],
+body[data-biome="todos"] {
+  --theme-signature: var(--brand-leaf);
+  --theme-card: var(--brand-night);
+  --theme-detail: var(--brand-canopy);
+  --theme-text: var(--text-primary);
+}
+
+body[data-biome="amazonia"] {
+  --theme-signature: #315f3c;
+  --theme-card: #193225;
+  --theme-detail: #527d4a;
+  --theme-text: #dcebe3;
+}
+
+body[data-biome="cerrado"] {
+  --theme-signature: #657232;
+  --theme-card: #302e1c;
+  --theme-detail: #87964b;
+  --theme-text: #f0e4cb;
+}
+
+body[data-biome="mata-atlantica"] {
+  --theme-signature: #1e5844;
+  --theme-card: #172d2a;
+  --theme-detail: #3e7b5b;
+  --theme-text: #dcebe8;
+}
+
+body[data-biome="caatinga"] {
+  --theme-signature: #725a32;
+  --theme-card: #302719;
+  --theme-detail: #94763e;
+  --theme-text: #f0e1d5;
+}
+
+body[data-biome="pantanal"] {
+  --theme-signature: #07558c;
+  --theme-card: #142b41;
+  --theme-detail: #2876b1;
+  --theme-text: #dfeef0;
+}
+
+body[data-biome="pampa"] {
+  --theme-signature: #4b702a;
+  --theme-card: #29351f;
+  --theme-detail: #6f913d;
+  --theme-text: #e7ead9;
+}
+
+body[data-biome] {
+  --primary-color: var(--theme-signature);
+  --active-color: var(--theme-detail);
+  --inputs-bg: var(--theme-card);
+  --card-bg: var(--theme-card);
+  --border-color: var(--theme-detail);
+}
+
+body {
+  background-color: var(--brand-ink);
+  color: var(--text-primary);
+}
+
+.side-bar {
+  background: rgba(7, 26, 49, 0.96);
+  border-color: rgba(120, 184, 42, 0.2);
+}
+
+body[data-biome] .side-bar {
+  background: var(--theme-card);
+  border-color: color-mix(in srgb, var(--theme-signature) 38%, transparent);
+}
+
+body[data-biome] .nav-menu a,
+body[data-biome] .logout-account {
+  color: var(--theme-text);
+}
+
+body[data-biome] .account-avatar {
+  background: var(--theme-signature);
+  color: var(--brand-ink);
+}
+
+body[data-biome] .nav-menu a.is-current {
+  opacity: 1;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: var(--brand-sunlit);
+  background: rgba(120, 184, 42, 0.16);
+}
+
+body[data-biome] .nav-menu a:hover,
+body[data-biome] .nav-menu a:focus-visible {
+  color: var(--theme-detail);
+  background: var(--theme-signature);
+}
+
+body[data-biome] .nav-menu a.is-current,
+body[data-biome] .nav-menu a.is-current:hover,
+body[data-biome] .nav-menu a.is-current:focus-visible {
+  color: var(--brand-ink);
+  background: var(--theme-signature);
+}
+
+.nav-menu a.is-current,
+.btn-primary,
+.btn-filtros,
+.btn-principal {
+  background-color: var(--brand-leaf);
+}
+
+.btn-primary:hover,
+.btn-filtros:hover,
+.btn-principal:hover {
+  background-color: var(--brand-canopy);
+}
+
+.hero-title,
+.about-text-section,
+.about-text-titulo h2,
+.about-content span,
+.login-text h1,
+.forgot-pass,
+.terms a {
+  color: var(--brand-canopy);
+}
+
+.about {
+  background: var(--brand-ink);
+}
+
+.about-cards {
+  background: linear-gradient(
+    180deg,
+    var(--brand-ink),
+    var(--brand-night) 65%,
+    var(--brand-forest)
+  );
+  border-color: rgba(120, 184, 42, 0.34);
+}
+
+.about-cards:hover {
+  border-color: var(--brand-sunlit);
+  box-shadow:
+    0 0 22px rgba(120, 184, 42, 0.28),
+    inset 0 0 18px rgba(120, 184, 42, 0.1);
+}
+
+.about-cards::after {
+  border-color: var(--brand-sunlit);
+  background: var(--brand-leaf);
+  color: var(--text-primary);
+}
+
+.about-cards:hover::after,
+.about-cards:focus-visible::after {
+  background: var(--brand-sunlit);
+  color: var(--brand-ink);
+}
+
+.login-card,
+.info-card,
+.account-card,
+.profile-card {
+  background-color: var(--brand-night);
+  border-color: rgba(120, 184, 42, 0.2);
+}
+
+body:not([data-biome]) {
+  --foliage-light: var(--brand-sunlit);
+  --foliage-dark: #24552c;
+  --foliage-vein: #73a640;
+}
+
+body[data-biome] .biome-btn.active {
+  background: var(--theme-signature);
+  border-color: var(--theme-signature);
+  color: var(--brand-ink);
+}
+
+body[data-biome] .main-content h1,
+body[data-biome] .input-area h1 {
+  color: var(--theme-text);
+}
+
+body[data-biome] .btn-filtros,
+body[data-biome] .btn-principal {
+  background-color: var(--theme-signature);
+  color: var(--brand-ink);
+}
+
+body[data-biome] .card {
+  background-color: var(--theme-card);
+  border-color: var(--theme-detail);
+}
+
+body[data-biome] .card-info h3,
+body[data-biome] .card-info .animal-biome,
+body[data-biome] .card-info .animal-location {
+  color: var(--theme-detail);
+}
